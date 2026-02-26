@@ -18,7 +18,7 @@
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.2.1",
     "@types/kakao-js-sdk": "^1.39.5",
     "@types/node": "^20",
     "@types/react": "^19",

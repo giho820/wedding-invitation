@@ -317,6 +317,12 @@ gallery: {
 4. 환경 변수를 설정합니다 (`.env.local` 파일의 내용).
 5. (선택 사항) 커스텀 도메인을 설정합니다.
 
+### EC2 배포 (GitHub Actions 자동 배포)
+
+Public 레포지토리에서 EC2로 push 시 자동 배포하려면 아래 가이드를 따르세요.
+
+- **[EC2 배포 가이드 (docs/DEPLOY.md)](docs/DEPLOY.md)** — EC2 준비, GitHub Secrets 설정, 자동 배포 절차
+
 ## 보안 및 개인정보 보호
 
 ### API 키 및 환경 변수 보호
