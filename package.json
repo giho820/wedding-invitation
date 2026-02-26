@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "prebuild": "node scripts/update-version.js",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "build:fresh": "npm run prebuild && npm run build",
     "start": "next start",
     "lint": "next lint"

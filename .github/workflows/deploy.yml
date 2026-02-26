@@ -20,10 +20,7 @@ jobs:
             cd ${{ secrets.EC2_APP_PATH }}
             git fetch origin main
             git reset --hard origin/main
-            # 빌드에 devDependencies(@tailwindcss/postcss 등) 필요
-            export NODE_ENV=development
             npm ci
             npm run build
-            export NODE_ENV=production
             pm2 restart wedding-invitation || pm2 start npm --name "wedding-invitation" -- start
             pm2 save

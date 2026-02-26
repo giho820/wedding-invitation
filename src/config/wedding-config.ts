@@ -1,3 +1,5 @@
+import { ShuttleInfo } from "../types/wedding";
+
 const uniqueIdentifier = "SKH-WEDDING-TEMPLATE-V1";
 
 // 갤러리 레이아웃 타입 정의
@@ -60,8 +62,7 @@ export const weddingConfig = {
       subway: "4호선 한성대입구역 6번 출구에서 도보 20분",
       bus: "한성대입구역 6번출구. 삼선교 정류소\n지선\n1111, 1112, 2112\n마을\n성북02, 성북03",
     },
-    parking:
-      "교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)",
+    parking: "교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)",
     // 신랑측 배차 안내
     groomShuttle: {
       location: "TODO 신랑측 배차 출발지",
@@ -71,15 +72,7 @@ export const weddingConfig = {
         tel: "010-1234-5678",
       },
     },
-    // 신부측 배차 안내
-    brideShuttle: {
-      location: "TODO 신부측 배차 출발지",
-      departureTime: "TODO 오전 11시 출발",
-      contact: {
-        name: "담당자명",
-        tel: "010-9876-5432",
-      },
-    },
+    brideShuttle: null as ShuttleInfo | null,
   },
 
   // 갤러리
