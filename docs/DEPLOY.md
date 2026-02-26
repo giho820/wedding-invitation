@@ -65,9 +65,13 @@ NEXT_PUBLIC_DEV_MODE=false
 
 ### 2-3. 수동으로 한 번 빌드·실행 테스트
 
+빌드에는 Tailwind 등 **devDependencies**가 필요하므로, `npm ci` 시 `NODE_ENV=development`로 설치합니다.
+
 ```bash
+export NODE_ENV=development
 npm ci
 npm run build
+export NODE_ENV=production
 pm2 start npm --name "wedding-invitation" -- start
 pm2 save
 pm2 startup   # 재부팅 시 자동 실행 안내 나오면 그 명령 실행
@@ -117,6 +121,23 @@ cat ~/.ssh/my-key.pem
 - **HTTPS**: Let’s Encrypt + Certbot으로 무료 SSL 인증서 발급 후 Nginx에 설정하면 됩니다.
 
 이 부분이 필요하면 Nginx 설정 예시도 별도로 정리해 드릴 수 있습니다.
+
+---
+
+## 6. 문제 해결
+
+### `Cannot find module '@tailwindcss/postcss'`
+
+- **원인**: 서버에 `NODE_ENV=production`이 설정돼 있으면 `npm ci`가 devDependencies를 설치하지 않습니다. Next.js 빌드에는 Tailwind/PostCSS가 필요해 이때 에러가 납니다.
+- **해결**: 프로젝트 루트에서 아래처럼 **devDependencies를 설치한 뒤** 빌드하세요.
+  ```bash
+  export NODE_ENV=development
+  npm ci
+  npm run build
+  export NODE_ENV=production
+  pm2 restart wedding-invitation
+  ```
+- GitHub Actions 워크플로에는 이미 위 순서가 반영돼 있습니다.
 
 ---
 
