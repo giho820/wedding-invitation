@@ -4,6 +4,7 @@
 유용하다면 Fork와 Star 해주세요~
 
 ## 샘플 사이트
+
 [사이트 바로가기](https://wedding-invitation-neon-five.vercel.app)
 
 ## 개발자 후원하기
@@ -42,24 +43,27 @@
 ### 환경 설정
 
 1. 저장소 클론하기:
+
    ```
    git clone https://github.com/your-username/wedding-invitation.git
    cd wedding-invitation
    ```
 
 2. 의존성 설치:
+
    ```
    npm install
    ```
 
 3. `.env.local` 파일 생성:
+
    ```
    # 네이버 지도 API 클라이언트 ID
    NEXT_PUBLIC_NAVER_MAP_CLIENT_ID=your_naver_map_client_id
-   
+
    # Slack Webhook URL (참석 여부 알림용)
    NEXT_PUBLIC_SLACK_WEBHOOK_URL=your_slack_webhook_url
-   
+
    # 사이트 URL (배포 후)
    NEXT_PUBLIC_SITE_URL=https://your-wedding-site.com
    ```
@@ -90,7 +94,7 @@
 
 ```typescript
 rsvp: {
-  enabled: true, // RSVP 섹션 표시 여부 (true: 표시, false: 숨김)
+  enabled: false, // RSVP 섹션 표시 여부 (true: 표시, false: 숨김)
   showMealOption: false, // 식사 여부 입력 옵션 표시 여부
 },
 ```
@@ -128,7 +132,7 @@ venue: {
   placeId: "12136346", // 네이버 지도 장소 ID
   mapZoom: "17.08",    // 지도 줌 레벨
   // ... 기타 설정
-  
+
   // 신랑측 배차 안내 (없으면 표시되지 않음)
   groomShuttle: {
     location: "서울역 2번 출구 앞",
@@ -138,7 +142,7 @@ venue: {
       tel: "010-1234-5678"
     }
   },
-  
+
   // 신부측 배차 안내 (없으면 표시되지 않음)
   brideShuttle: {
     location: "강남역 4번 출구 앞",
@@ -191,7 +195,6 @@ gallery: {
   - 좌우 화살표 버튼으로 탐색 가능
   - 터치 스와이프로 이동 가능
   - 화면 공간을 효율적으로 사용
-  
 - **`"grid"`**: 3열 그리드 형태로 모든 이미지를 한 번에 표시합니다.
   - 모든 갤러리 이미지를 한 화면에서 확인 가능
   - 반응형 디자인으로 모바일에서도 최적화
@@ -201,7 +204,6 @@ gallery: {
 
 - **`"middle"`**: 기본 위치 (장소 정보 다음)
   - 메인 화면 → 초대의 말씀 → 일정 → 장소 정보 → **갤러리** → 참석 여부 → 마음 전하실 곳
-  
 - **`"bottom"`**: 맨 하단 위치 (Footer 바로 위)
   - 메인 화면 → 초대의 말씀 → 일정 → 장소 정보 → 참석 여부 → 마음 전하실 곳 → **갤러리**
 
@@ -249,10 +251,12 @@ gallery: {
 ### 이미지 추가
 
 웨딩 이미지는 `public/images/` 디렉토리에 추가하세요:
+
 - 메인 이미지: `public/images/main.jpg`
 - 갤러리 이미지: `public/images/gallery/image1.jpg`, `public/images/gallery/image2.jpg`, ...
 
 이미지는 최적화를 위해 다음 사항을 고려하세요:
+
 - 메인 이미지: 1080x1920px 권장 (세로형 모바일 최적화)
 - 갤러리 이미지: 1200x900px 권장 (4:3 비율)
 - 파일 크기 최적화: JPG 또는 WebP 형식, 이미지당 500KB 이하 권장
@@ -260,6 +264,7 @@ gallery: {
 ### 폰트 추가
 
 사용자 정의 폰트는 `public/fonts/` 디렉토리에 추가하세요:
+
 - MaruBuri-ExtraLight.ttf
 - MaruBuri-Light.ttf
 - MaruBuri-Regular.ttf
@@ -282,11 +287,13 @@ gallery: {
 #### Vercel CLI로 배포하기
 
 1. Vercel CLI 설치:
+
    ```
    npm install -g vercel
    ```
 
 2. 로그인:
+
    ```
    vercel login
    ```
@@ -295,7 +302,6 @@ gallery: {
    ```
    vercel
    ```
-   
 4. 프로덕션 환경으로 배포:
    ```
    vercel --prod
@@ -305,7 +311,7 @@ gallery: {
 
 1. [Netlify](https://netlify.com)에 가입하고 GitHub 계정을 연결합니다.
 2. 새 사이트를 생성하고 이 저장소를 선택합니다.
-3. 빌드 설정: 
+3. 빌드 설정:
    - Build command: `npm run build`
    - Publish directory: `.next`
 4. 환경 변수를 설정합니다 (`.env.local` 파일의 내용).
@@ -355,6 +361,7 @@ gallery: {
 ### 공유 기능
 
 청첩장을 쉽게 공유할 수 있는 두 가지 방법을 제공합니다:
+
 1. URL 복사하기: 클립보드에 현재 URL을 복사
 2. 공유하기: Web Share API를 사용하여 기기의 공유 메뉴 호출
 
@@ -402,12 +409,15 @@ Pull Request를 제출할 때는 다음 정보를 포함해주세요:
 
 ```markdown
 ## 변경 사항 설명
+
 변경된 내용과 그 이유를 간략히 설명해주세요.
 
 ## 관련 이슈
+
 해당 PR이 해결하는 이슈 번호를 적어주세요 (예: #123).
 
 ## 체크리스트
+
 - [ ] 코드가 프로젝트 스타일 가이드를 따르는지 확인했습니다.
 - [ ] 기존 코드의 동작을 변경하는 경우, 주석으로 이유를 설명했습니다.
 - [ ] 필요한 경우 문서를 업데이트했습니다.
@@ -430,6 +440,7 @@ Pull Request를 제출할 때는 다음 정보를 포함해주세요:
 이 저작물은 [크리에이티브 커먼즈 저작자표시-비영리-변경금지 4.0 국제 라이선스](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko)에 따라 이용할 수 있습니다.
 
 다음과 같은 제한이 적용됩니다:
+
 - **저작자표시(BY)**: 원저작자를 밝혀야 합니다.
 - **비영리(NC)**: 이 저작물은 상업적 목적으로 이용할 수 없습니다. 이 프로젝트를 활용하여 유료 서비스를 제공하거나 상업적 이익을 취할 수 없습니다.
 - **변경금지(ND)**: 이 저작물을 개작, 수정하여 다른 저작물을 만들 수 없습니다. 이 프로젝트의 코드를 수정하여 다른 프로젝트를 만들거나 배포할 수 없습니다.
