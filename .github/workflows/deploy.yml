@@ -1,15 +1,18 @@
-# main 브랜치에 push 시 LightSail에 자동 배포
-name: Deploy to LightSail
+name: Deploy (main)
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to EC2 via SSH
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.LIGHTSAIL_HOST }}
@@ -18,12 +21,32 @@ jobs:
           port: 22
           script: |
             set -e
+
+            # --- nvm 강제 로드 (비대화형 ssh에서 필수) ---
+            export NVM_DIR="/home/ubuntu/.nvm"
+            if [ -s "$NVM_DIR/nvm.sh" ]; then
+              . "$NVM_DIR/nvm.sh"
+            else
+              echo "nvm.sh not found at $NVM_DIR/nvm.sh"
+              exit 1
+            fi
+
+            # node/npm 활성화 (이미 설치된 버전 사용)
+            nvm use 25.7.0
+
+            echo "node=$(node -v)"
+            echo "npm=$(npm -v)"
+            echo "pm2=$(pm2 -v || true)"
+
+            # --- 배포 ---
             cd /home/ubuntu/wedding-invitation
             git fetch --all
             git reset --hard origin/main
+
             npm ci
             npm run build
 
+            # 무중단 반영 (없으면 시작)
             pm2 describe wedding-invitation >/dev/null \
               && pm2 reload wedding-invitation --update-env \
               || pm2 start ecosystem.config.js --only wedding-invitation
