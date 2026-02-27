@@ -317,7 +317,7 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
           aria-modal="true"
           role="dialog"
         >
-          <ExpandedImageContainer onClick={e => e.stopPropagation()}>
+          <ExpandedImageContainer>
             {isExpandedImageLoading && (
               <LoadingSpinnerContainer>
                 <LoadingSpinner />
@@ -333,7 +333,7 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
                 <ArrowLeftIcon />
               </ExpandedNavButton>
             )}
-            <ExpandedImageWrapper $isLoading={isExpandedImageLoading}>
+            <ExpandedImageWrapper $isLoading={isExpandedImageLoading} onClick={e => e.stopPropagation()}>
               <Image 
                 src={expandedImage}
                 alt="확대된 웨딩 갤러리 이미지"
@@ -539,7 +539,7 @@ const ExpandedImageWrapper = styled.div<{ $isLoading: boolean }>`
 `;
 
 const CloseButton = styled.button`
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
   width: 2.5rem;
@@ -553,7 +553,7 @@ const CloseButton = styled.button`
   justify-content: center;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1001;
   opacity: 0.9;
   
   &:hover {
