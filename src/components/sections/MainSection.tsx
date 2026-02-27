@@ -11,7 +11,7 @@ const MainSection = () => {
   return (
     <MainSectionContainer className={`wedding-container jwk-${watermarkId.slice(0, 8)}-main`}>
       {}
-      <BackgroundImage 
+      <BackgroundImage
         src={weddingConfig.main.image}
         alt="웨딩 배경 이미지"
         fill
@@ -26,11 +26,9 @@ const MainSection = () => {
         <DateText>{weddingConfig.main.date}</DateText>
         <VenueText>{weddingConfig.main.venue}</VenueText>
         {}
-        <HiddenWatermark aria-hidden="true">
-          {watermarkId}
-        </HiddenWatermark>
+        <HiddenWatermark aria-hidden="true">{watermarkId}</HiddenWatermark>
       </MainContent>
-      
+
       <ScrollIndicator>
         <i className="fas fa-chevron-down"></i>
       </ScrollIndicator>
@@ -40,10 +38,8 @@ const MainSection = () => {
 
 const MainSectionContainer = styled.section`
   position: relative;
-  height: 100vh;
-  height: 100svh; /* 주소창 표시 시 뷰포트 고정 → 카카오톡 등에서 스크롤 튐 방지 */
-  min-height: 100vh;
   min-height: 100svh;
+  max-height: 100lvh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -61,7 +57,7 @@ const MainSectionContainer = styled.section`
     width: auto;
     margin: 0 auto;
     border-radius: 24px; /* 선택사항: 모서리 둥글게 */
-    box-shadow: 0 0 32px rgba(0,0,0,0.08); /* 선택사항: 그림자 */
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.08); /* 선택사항: 그림자 */
   }
 `;
 
@@ -75,7 +71,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%);
   z-index: 1;
 `;
 
@@ -99,7 +95,7 @@ const MainTitle = styled.h1`
   margin-bottom: 1rem;
   font-weight: 400;
   line-height: 1.2;
-  
+
   /* 기본 크기에서 세로 길이가 짧을 때 */
   @media (min-width: 769px) and (max-height: 700px) {
     letter-spacing: 1.5px;
@@ -109,12 +105,12 @@ const MainTitle = styled.h1`
     letter-spacing: 1px;
     margin-bottom: 0.6rem;
   }
-  
+
   @media (max-width: 768px) {
     font-size: 2.5rem;
     min-height: 2.5rem;
   }
-  
+
   /* 768px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 768px) and (max-height: 650px) {
     letter-spacing: 1px;
@@ -124,13 +120,13 @@ const MainTitle = styled.h1`
     letter-spacing: 0.5px;
     margin-bottom: 0.6rem;
   }
-  
+
   @media (max-width: 450px) {
     font-size: 2rem;
     min-height: 2rem;
     letter-spacing: 1.5px;
   }
-  
+
   /* 450px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 450px) and (max-height: 600px) {
     letter-spacing: 1px;
@@ -140,13 +136,13 @@ const MainTitle = styled.h1`
     letter-spacing: 0.5px;
     margin-bottom: 0.6rem;
   }
-  
+
   @media (max-width: 360px) {
     font-size: 1.8rem;
     min-height: 1.8rem;
     letter-spacing: 1px;
   }
-  
+
   /* 360px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 360px) and (max-height: 550px) {
     letter-spacing: 0.5px;
@@ -156,13 +152,13 @@ const MainTitle = styled.h1`
     letter-spacing: 0.2px;
     margin-bottom: 0.6rem;
   }
-  
+
   @media (max-width: 295px) {
     font-size: 1.6rem;
     min-height: 1.6rem;
     letter-spacing: 0.5px;
   }
-  
+
   /* 295px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 295px) and (max-height: 500px) {
     letter-spacing: 0.2px;
@@ -177,7 +173,7 @@ const MainTitle = styled.h1`
 const DateText = styled.p`
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  
+
   /* 기본 크기에서 세로 길이가 짧을 때 */
   @media (min-width: 769px) and (max-height: 700px) {
     margin-bottom: 0.4rem;
@@ -185,12 +181,12 @@ const DateText = styled.p`
   @media (min-width: 769px) and (max-height: 600px) {
     margin-bottom: 0.3rem;
   }
-  
+
   @media (max-width: 768px) {
     font-size: 1.2rem;
     min-height: 0.3rem;
   }
-  
+
   /* 768px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 768px) and (max-height: 650px) {
     margin-bottom: 0.4rem;
@@ -198,12 +194,12 @@ const DateText = styled.p`
   @media (max-width: 768px) and (max-height: 550px) {
     margin-bottom: 0.3rem;
   }
-  
+
   @media (max-width: 450px) {
     font-size: 1.1rem;
     margin-bottom: 0.15rem;
   }
-  
+
   /* 450px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 450px) and (max-height: 600px) {
     margin-bottom: 0.1rem;
@@ -211,12 +207,12 @@ const DateText = styled.p`
   @media (max-width: 450px) and (max-height: 500px) {
     margin-bottom: 0.05rem;
   }
-  
+
   @media (max-width: 360px) {
     font-size: 1rem;
     margin-bottom: 0.1rem;
   }
-  
+
   /* 360px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 360px) and (max-height: 550px) {
     margin-bottom: 0.05rem;
@@ -224,12 +220,12 @@ const DateText = styled.p`
   @media (max-width: 360px) and (max-height: 450px) {
     margin-bottom: 0.02rem;
   }
-  
+
   @media (max-width: 295px) {
     font-size: 0.9rem;
     margin-bottom: 0.05rem;
   }
-  
+
   /* 295px 이하에서 세로 길이가 짧을 때 */
   @media (max-width: 295px) and (max-height: 500px) {
     margin-bottom: 0.02rem;
@@ -262,9 +258,13 @@ const ScrollIndicator = styled.div`
   transform: translateX(-50%);
   z-index: 2;
   animation: bounce 2s infinite;
-  
+
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
       transform: translateX(-50%) translateY(0);
     }
     40% {
@@ -288,4 +288,4 @@ const HiddenWatermark = styled.span`
   right: 0;
 `;
 
-export default MainSection; 
+export default MainSection;
