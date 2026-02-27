@@ -115,45 +115,8 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
     }
   }, [expandedImage]);
   
-  // 터치 이벤트 처리
-  useEffect(() => {
-    let startX = 0;
-    let startY = 0;
-    
-    const handleTouchStart = (e: TouchEvent) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-    };
-    
-    const handleTouchEnd = (e: TouchEvent) => {
-      const endX = e.changedTouches[0].clientX;
-      const endY = e.changedTouches[0].clientY;
-      const deltaX = endX - startX;
-      const deltaY = endY - startY;
-      
-      // 수평 스와이프가 수직 스와이프보다 클 때만 이미지 변경
-      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-        if (deltaX > 0) {
-          // 오른쪽 스와이프 - 이전 이미지
-          goToPreviousImage();
-        } else {
-          // 왼쪽 스와이프 - 다음 이미지
-          goToNextImage();
-        }
-      }
-    };
-    
-    if (expandedImage && overlayRef.current) {
-      const overlay = overlayRef.current;
-      overlay.addEventListener('touchstart', handleTouchStart, { passive: true });
-      overlay.addEventListener('touchend', handleTouchEnd, { passive: true });
-      
-      return () => {
-        overlay.removeEventListener('touchstart', handleTouchStart);
-        overlay.removeEventListener('touchend', handleTouchEnd);
-      };
-    }
-  }, [expandedImage]);
+  // 터치 이벤트 처리 제거 (스와이프 대신 좌우 버튼 사용)
+  // 터치 통과 방지는 ExpandedImageOverlay의 touch-action: none으로 처리
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -350,6 +313,7 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
         <ExpandedImageOverlay 
           ref={overlayRef} 
           onClick={handleCloseExpanded}
+          onTouchMove={e => e.preventDefault()}
           aria-modal="true"
           role="dialog"
         >
@@ -358,6 +322,16 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
               <LoadingSpinnerContainer>
                 <LoadingSpinner />
               </LoadingSpinnerContainer>
+            )}
+            {expandedImageIndex > 0 && (
+              <ExpandedNavButton
+                type="button"
+                $side="left"
+                onClick={e => { e.stopPropagation(); goToPreviousImage(); }}
+                aria-label="이전 이미지"
+              >
+                <ArrowLeftIcon />
+              </ExpandedNavButton>
             )}
             <ExpandedImageWrapper $isLoading={isExpandedImageLoading}>
               <Image 
@@ -373,6 +347,16 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
                 onError={handleExpandedImageError}
               />
             </ExpandedImageWrapper>
+            {expandedImageIndex < images.length - 1 && (
+              <ExpandedNavButton
+                type="button"
+                $side="right"
+                onClick={e => { e.stopPropagation(); goToNextImage(); }}
+                aria-label="다음 이미지"
+              >
+                <ArrowRightIcon />
+              </ExpandedNavButton>
+            )}
             <CloseButton onClick={handleCloseExpanded} aria-label="닫기">×</CloseButton>
           </ExpandedImageContainer>
         </ExpandedImageOverlay>
@@ -523,6 +507,9 @@ const ExpandedImageOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: none;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const ExpandedImageContainer = styled.div`
@@ -571,6 +558,42 @@ const CloseButton = styled.button`
   
   &:hover {
     opacity: 1;
+  }
+`;
+
+const ExpandedNavButton = styled.button<{ $side: 'left' | 'right' }>`
+  position: absolute;
+  left: ${({ $side }) => ($side === 'left' ? '1rem' : 'auto')};
+  right: ${({ $side }) => ($side === 'right' ? '1rem' : 'auto')};
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+
+  & svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
   }
 `;
 
