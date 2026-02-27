@@ -17,7 +17,7 @@ export const weddingConfig = {
   meta: {
     title: "성기호 💚 조민지의 결혼식에 초대합니다",
     description: "26년 4월 25일 오후 1시, 성북구 덕수교회",
-    ogImage: "/images/gallery/t352120.webp",
+    ogImage: "/images/gallery/g21544.webp",
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
@@ -25,14 +25,9 @@ export const weddingConfig = {
   // 메인 화면
   main: {
     title: "Wedding Invitation",
-    image: "/images/gallery/t352120.webp",
-    date: "2026년 4월 25일 토요일 13시 0분",
+    image: "/images/gallery/g21544.webp",
+    date: "2026년 4월 25일 토요일 13시",
     venue: "성북구 덕수교회",
-  },
-
-  // 소개글
-  intro: {
-    text: "서로를 바라보며 걸어온\n소중한 발걸음이\n이제 하나의 길로 이어집니다.\n\n사랑과 믿음으로\n새 가정을 이루는 저희 두 사람의\n작은 시작을 알려드립니다.",
   },
 
   // 결혼식 일정
@@ -62,7 +57,8 @@ export const weddingConfig = {
       subway: "4호선 한성대입구역 6번 출구에서 도보 20분",
       bus: "한성대입구역 6번출구. 삼선교 정류소\n지선\n1111, 1112, 2112\n마을\n성북02, 성북03",
     },
-    parking: "교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)",
+    parking:
+      "교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)\nTODO 주차장 정보 안내",
     // 신랑측 배차 안내
     groomShuttle: {
       location: "TODO 신랑측 배차 출발지",
@@ -94,7 +90,7 @@ export const weddingConfig = {
   // 초대의 말씀
   invitation: {
     message:
-      "한 줄기 별빛이 되어 만난 인연\n평생을 함께 걸어가려 합니다.\n\n소중한 분들의 축복 속에\n저희 두 사람이 첫 걸음을 내딛습니다.\n\n귀한 시간 내어 함께해 주신다면\n그 어떤 축복보다 값진 선물이 될 것입니다.",
+      "오랜 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 함께해주셔서\n사랑과 축복을 나눠주시면 감사하겠습니다.",
     groom: {
       name: "성기호",
       label: "아들",
