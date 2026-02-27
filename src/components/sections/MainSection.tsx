@@ -41,7 +41,9 @@ const MainSection = () => {
 const MainSectionContainer = styled.section`
   position: relative;
   height: 100vh;
+  height: 100svh; /* 주소창 표시 시 뷰포트 고정 → 카카오톡 등에서 스크롤 튐 방지 */
   min-height: 100vh;
+  min-height: 100svh;
   width: 100vw;
   display: flex;
   flex-direction: column;
