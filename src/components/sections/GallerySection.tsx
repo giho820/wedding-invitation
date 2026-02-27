@@ -143,8 +143,44 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
     }
   }, [expandedImage]);
 
-  // 터치 이벤트 처리 제거 (스와이프 대신 좌우 버튼 사용)
-  // 터치 통과 방지는 ExpandedImageOverlay의 touch-action: none으로 처리
+  // 터치 스와이프 처리 (캡처 단계 등록 → 이미지 영역 터치도 인식)
+  useEffect(() => {
+    let startX = 0;
+    let startY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // 수평 스와이프가 수직 스와이프보다 클 때만 이미지 변경
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          goToPreviousImage();
+        } else {
+          goToNextImage();
+        }
+      }
+    };
+
+    const opts = { passive: true, capture: true };
+    if (expandedImage && overlayRef.current) {
+      const overlay = overlayRef.current;
+      overlay.addEventListener('touchstart', handleTouchStart, opts);
+      overlay.addEventListener('touchend', handleTouchEnd, opts);
+
+      return () => {
+        overlay.removeEventListener('touchstart', handleTouchStart, opts);
+        overlay.removeEventListener('touchend', handleTouchEnd, opts);
+      };
+    }
+  }, [expandedImage, expandedImageIndex, images]);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -362,7 +398,11 @@ const GallerySection = ({ bgColor = 'white' }: GallerySectionProps) => {
                 <ArrowLeftIcon />
               </ExpandedNavButton>
             )}
-            <ExpandedImageWrapper $isLoading={isExpandedImageLoading}>
+            <ExpandedImageWrapper
+              $isLoading={isExpandedImageLoading}
+              onClick={(e) => e.stopPropagation()}
+              onTouchEnd={(e) => e.stopPropagation()}
+            >
               <Image
                 src={expandedImage}
                 alt="확대된 웨딩 갤러리 이미지"

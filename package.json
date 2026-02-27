@@ -7,7 +7,8 @@
     "prebuild": "node scripts/update-version.js",
     "build": "NODE_ENV=production next build",
     "build:fresh": "npm run prebuild && npm run build",
-    "start": "next start",
+    "start": "npm run build && next start",
+    "start:server": "next start",
     "lint": "next lint"
   },
   "dependencies": {
