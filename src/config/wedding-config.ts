@@ -90,7 +90,7 @@ export const weddingConfig = {
   // 초대의 말씀
   invitation: {
     message:
-      '오랜 기도와 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 함께해주셔서\n사랑과 축복을 나눠주시면 감사하겠습니다.',
+      '오랜 기도와 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 오셔서\n기쁨을 나눠주시면 감사하겠습니다.',
     groom: {
       name: '성기호',
       label: '아들',
@@ -118,24 +118,24 @@ export const weddingConfig = {
       holder: '조민지',
     },
     groomFather: {
-      bank: '은행명',
-      number: '111-222-333444',
-      holder: '신랑아버지',
+      bank: '농협',
+      number: '344-02-001927',
+      holder: '성도경',
     },
     groomMother: {
-      bank: '은행명',
-      number: '555-666-777888',
-      holder: '신랑어머니',
+      bank: '농협',
+      number: '531017-52-111616',
+      holder: '김미경',
     },
     brideFather: {
-      bank: '은행명',
-      number: '999-000-111222',
-      holder: '신부아버지',
+      bank: '우리',
+      number: '1005-602-388936',
+      holder: '조희수',
     },
     brideMother: {
-      bank: '은행명',
-      number: '333-444-555666',
-      holder: '신부어머니',
+      bank: '우리',
+      number: '1002-051-783035',
+      holder: '권춘자',
     },
   },
 
