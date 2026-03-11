@@ -17,7 +17,7 @@ export const weddingConfig = {
   meta: {
     title: '성기호 💚 조민지의 결혼식에 초대합니다',
     description: '26년 4월 25일 오후 1시, 성북구 덕수교회',
-    ogImage: '/images/gallery/g21544.webp',
+    ogImage: '/images/gallery/t352120.webp',
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
@@ -61,11 +61,11 @@ export const weddingConfig = {
       '교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)\nTODO 주차장 정보 안내',
     // 신랑측 배차 안내
     groomShuttle: {
-      location: 'TODO 신랑측 배차 출발지',
-      departureTime: 'TODO 오전 10시 30분 출발',
+      location: '추후 업데이트 예정입니다.',
+      departureTime: '추후 업데이트 예정입니다.',
       contact: {
-        name: '담당자명',
-        tel: '010-1234-5678',
+        name: '성기호',
+        tel: '010-9195-6800',
       },
     },
     brideShuttle: null as ShuttleInfo | null,
@@ -90,7 +90,7 @@ export const weddingConfig = {
   // 초대의 말씀
   invitation: {
     message:
-      '오랜 기도와 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 오셔서\n기쁨을 나눠주시면 감사하겠습니다.',
+      '오랜 기도와 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 오셔서\n사랑과 축복을 나눠주시면 감사하겠습니다.',
     groom: {
       name: '성기호',
       label: '아들',
