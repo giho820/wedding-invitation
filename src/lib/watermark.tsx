@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { weddingConfig } from '../config/wedding-config';
 
-const watermarkId = weddingConfig.meta._jwk_watermark_id || 'JWK-NonCommercial';
+const watermarkId = weddingConfig.meta._jwk_watermark_id || 'SKH-NonCommercial';
 const dateString = '2025-09-21'; 
 
 export const Watermark: React.FC = () => {

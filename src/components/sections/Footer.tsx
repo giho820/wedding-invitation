@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { weddingConfig } from "../../config/wedding-config";
 
-const watermarkId = weddingConfig.meta._jwk_watermark_id || "JWK-NonCommercial";
+const watermarkId = weddingConfig.meta._jwk_watermark_id || "SKH-NonCommercial";
 
 const jwk_checkNonCommercial = () => {
   console.log(`Watermark: ${watermarkId.slice(0, 5)}`);

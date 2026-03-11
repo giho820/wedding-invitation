@@ -3,7 +3,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { weddingConfig } from '../config/wedding-config';
 
-const watermarkId = weddingConfig.meta._jwk_watermark_id || 'JWK-NonCommercial';
+const watermarkId = weddingConfig.meta._jwk_watermark_id || 'SKH-NonCommercial';
 
 /**
  * @license

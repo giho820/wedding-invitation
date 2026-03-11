@@ -1,6 +1,6 @@
 import { ShuttleInfo } from '../types/wedding';
 
-const uniqueIdentifier = 'SKH-WEDDING-TEMPLATE-V1';
+const uniqueIdentifier = 'SKH-WEDDING-TEMPLATE-V2';
 
 // 갤러리 레이아웃 타입 정의
 type GalleryLayout = 'scroll' | 'grid';
