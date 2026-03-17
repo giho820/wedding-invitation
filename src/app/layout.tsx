@@ -16,25 +16,21 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       {}
       <head>
         <link
           rel="preload"
-          href="/fonts/PlayfairDisplay-Italic.ttf" 
+          href="/fonts/PlayfairDisplay-Italic.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/MaruBuri-Regular.ttf" 
+          href="/fonts/MaruBuri-Regular.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
@@ -42,6 +38,10 @@ export default function RootLayout({
         {}
         <meta name="generator" content={`Wedding-Template-${watermarkId}`} />
         <meta name="description" content={metaDescription} />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        />
       </head>
       <body>
         <GlobalStyle />
@@ -55,4 +55,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}
