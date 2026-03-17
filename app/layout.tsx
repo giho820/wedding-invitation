@@ -1,9 +1,9 @@
 'use client';
 
-import { weddingConfig } from "../src/config/wedding-config";
-import StyledComponentsRegistry from "../src/lib/registry";
-import { GlobalStyle } from "../src/styles/globalStyles";
-import "./globals.css";
+import { weddingConfig } from '../src/config/wedding-config';
+import StyledComponentsRegistry from '../src/lib/registry';
+import { GlobalStyle } from '../src/styles/globalStyles';
+import './globals.css';
 
 export default function RootLayout({
   children,
@@ -22,12 +22,15 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="웨딩 청첩장" />
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no"
+        />
       </head>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
-        {children}
+          {children}
         </StyledComponentsRegistry>
       </body>
     </html>
