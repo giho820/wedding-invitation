@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Viewport } from 'next';
 import { weddingConfig } from '../config/wedding-config';
 import Watermark from '../lib/watermark';
 import { GlobalStyle } from '../styles/globalStyles';
@@ -6,6 +7,14 @@ import CacheManager from '../components/CacheManager';
 
 const watermarkId = weddingConfig.meta._jwk_watermark_id || 'JWK-NonCommercial';
 const metaDescription = '웨딩 청첩장 - 비상업적 용도';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export default function RootLayout({
   children,
