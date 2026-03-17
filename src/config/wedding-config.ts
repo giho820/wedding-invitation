@@ -25,7 +25,7 @@ export const weddingConfig = {
   // 메인 화면
   main: {
     title: 'Wedding Invitation',
-    image: '/images/gallery/g21544.webp',
+    image: '/images/gallery/w09807.webp',
     date: '2026년 4월 25일 토요일 13시',
     venue: '성북구 덕수교회',
   },
