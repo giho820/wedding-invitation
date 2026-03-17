@@ -58,11 +58,11 @@ export const weddingConfig = {
       bus: '한성대입구역 6번출구. 삼선교 정류소\n지선\n1111, 1112, 2112\n마을\n성북02, 성북03',
     },
     parking:
-      '교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)\nTODO 주차장 정보 안내',
+      '교회 접근하셔서 주차 안내에 따라주세요(주차가 협소하니 가급적 대중교통을 이용해주시면 감사하겠습니다.)',
     // 신랑측 배차 안내
     groomShuttle: {
-      location: '추후 업데이트 예정입니다.',
-      departureTime: '추후 업데이트 예정입니다.',
+      location: `이리신광교회 맞은편 주차장 ('익산교육문화회관 전기차충전소' 검색)`,
+      departureTime: '예식 당일 오전 9시',
       contact: {
         name: '성기호',
         tel: '010-9195-6800',
@@ -92,13 +92,13 @@ export const weddingConfig = {
     message:
       '오랜 기도와 기다림 끝에\n서로를 찾은 두 사람이\n이제 하나가 되려합니다.\n\n저희의 결혼식에 오셔서\n사랑과 축복을 나눠주시면 감사하겠습니다.',
     groom: {
-      name: '성기호',
+      name: '기호',
       label: '아들',
       father: '성도경',
       mother: '김미경',
     },
     bride: {
-      name: '조민지',
+      name: '민지',
       label: '딸',
       father: '조희수',
       mother: '권춘자',
