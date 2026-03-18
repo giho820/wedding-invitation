@@ -8,14 +8,6 @@ import CacheManager from '../components/CacheManager';
 const watermarkId = weddingConfig.meta._jwk_watermark_id || 'JWK-NonCommercial';
 const metaDescription = '웨딩 청첩장 - 비상업적 용도';
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  minimumScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
@@ -38,10 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {}
         <meta name="generator" content={`Wedding-Template-${watermarkId}`} />
         <meta name="description" content={metaDescription} />
-        {/* <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-        /> */}
       </head>
       <body>
         <GlobalStyle />
